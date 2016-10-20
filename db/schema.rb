@@ -10,18 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019224831) do
+ActiveRecord::Schema.define(version: 20161020211635) do
 
-  create_table "pages", force: :cascade do |t|
-    t.string  "name"
-    t.string  "permalink"
-    t.boolean "visible",   default: false
-    t.index ["permalink"], name: "index_pages_on_permalink"
-  end
-
-  create_table "vimeo_embed", force: :cascade do |t|
-    t.string "name"
-    t.string "embed"
+  create_table "admin_users", force: :cascade do |t|
+    t.string   "username"
+    t.string   "password_digest"
+    t.string   "email",           default: "", null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
 end

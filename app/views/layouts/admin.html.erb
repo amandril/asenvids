@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ASEN Videos | <%= @page_title || "admin" %></title>
+		<%= stylesheet_link_tag('application', :media => 'all') %>
+	</head>
+	<body>
+		<div id="header">
+			<h2>ASEN Admin Area</h2>
+		</div>
+		<div id="admin_area">
+
+			<% if !flash[:notice].blank? %>
+				<div id="notice-box">
+					<div class="notice">
+						<%= flash[:notice] %>
+					</div>
+				</div>
+			<% end %>
+
+			<div id="content">
+				<%= yield %>
+			</div>
+
+		</div>
+	</body>
+</html>
