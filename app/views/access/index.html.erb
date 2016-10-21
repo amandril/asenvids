@@ -3,7 +3,9 @@
 <div class="menu">
 	<div class="identity">Logged in as: <%= session[:username] %></div>
 	<ul>
-		<li><%= link_to("Manage Content", :controller => 'content') %></li>
+		<li><%= link_to("Add Video", :controller => 'access', :action => 'add_video') %></li>
 		<li><%= link_to("Logout", :action => 'logout') %></li>
+		<li>&nbsp;</li>
+		<li><%= link_to("Back to Content", :controller => 'public', :action => 'index') %></li>
 	</ul>
 </div>

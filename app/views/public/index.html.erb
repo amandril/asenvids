@@ -1,2 +1,18 @@
-<h1>Public#index</h1>
-<p>A new index!</p>
+<h2>List of ASEN videos</h2><br>
+
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Description</th>
+		<th>Created On</th>
+	</tr>
+	<% @video.each do |vid| %>
+	<tr>
+		<td><%= vid.title %></td>
+		<td><%= vid.description %></td>
+		<td><%= vid.created_at %></td>
+	</tr>
+	<% end %>
+</table>
+
+<p><%= link_to("Manage Content", :controller => 'access', :action => 'index') %></p>

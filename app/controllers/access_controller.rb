@@ -13,9 +13,16 @@ class AccessController < ApplicationController
 	end
 
 	def add_video
+		@video = Video.new
 	end
 
 	def create_video
+		@video = Video.new(video_params)
+		if @video.save
+			redirect_to(:controller => 'public', :action => 'index')
+		else
+			render('add_video')
+		end
 	end
 
 	def edit_video
@@ -28,8 +35,6 @@ class AccessController < ApplicationController
 	end
 
 	def destroy_video
-	end
-		
 	end
 
 	def attempt_login
