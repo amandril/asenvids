@@ -12,6 +12,26 @@ class AccessController < ApplicationController
 		# login form
 	end
 
+	def add_video
+	end
+
+	def create_video
+	end
+
+	def edit_video
+	end
+
+	def update_video
+	end
+
+	def delete_video
+	end
+
+	def destroy_video
+	end
+		
+	end
+
 	def attempt_login
 		if params[:username].present? && params[:password].present?
 			found_user = AdminUser.where(:username => params[:username]).first
@@ -38,5 +58,11 @@ class AccessController < ApplicationController
 		flash[:notice] = "Logged out"
 		redirect_to(:action => 'login')
 	end
+
+	private
+
+		def video_params
+			params.require(:video).permit(:title, :video_url, :description, :position, :visible, :created_at)
+		end
 
 end
