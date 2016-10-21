@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20161021140153) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.string   "name",        default: "",        null: false
+    t.string   "title",       default: "",        null: false
     t.string   "video_url",   default: "http://", null: false
     t.text     "description"
     t.integer  "position"
