@@ -26,15 +26,27 @@ class AccessController < ApplicationController
 	end
 
 	def edit_video
+		@video = Video.find(params[:id])
 	end
 
 	def update_video
+		@video = Video.find(params[:id])
+		if @video.update_attributes(video_params)
+			flash[:notice] = "Video '#{@video.title}' updated successfully."
+			redirect_to(:controller => 'public', :action => 'index')
+		else
+			render('edit_video')
+		end
 	end
 
 	def delete_video
+		@video = Video.find(params[:id])
 	end
 
 	def destroy_video
+		video = Video.find(params[:id]).destroy
+		flash[:notice] = "Video '#{video.title}' deleted successfully."
+		redirect_to(:controller => 'public', :action => 'index')
 	end
 
 	def attempt_login

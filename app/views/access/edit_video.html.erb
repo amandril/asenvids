@@ -1,8 +1,8 @@
-<% @page_title = "Admin Menu | Add Video" %>
+<% @page_title = "Admin Menu | Edit Video" %>
 
 <div class="menu">
 
-	<%= form_for :video, url: { action: 'create_video' } do |f| %>
+	<%= form_for :video, url: { action: 'update_video', :id => @video} do |f| %>
 	<table>
 		<tr>
 			<td><%= label_tag(:title, "Title: ") %></td>
@@ -17,7 +17,7 @@
 			<td><%= f.text_area :description %></td>
 		</tr>
 		<tr>
-			<td><%= f.submit "Create" %></td>
+			<td><%= f.submit "Edit" %></td>
 		</tr>
 	</table>
 	<% end %>

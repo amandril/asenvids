@@ -5,12 +5,21 @@
 		<th>Title</th>
 		<th>Description</th>
 		<th>Created On</th>
+		<% if session[:user_id] %>
+			<th>Video ID</th>
+			<th>Admin Actions</th>
+		<% end %>
 	</tr>
 	<% @video.each do |vid| %>
 	<tr>
 		<td><%= vid.title %></td>
 		<td><%= vid.description %></td>
 		<td><%= vid.created_at %></td>
+		<% if session[:user_id] %>
+			<td><%= vid.id %></td>
+			<td><%= link_to("Edit", :controller => 'access', :action => 'edit_video', :id => vid.id) %>&nbsp;
+			<%= link_to("Delete", :controller => 'access', :action => 'delete_video', :id => vid.id) %></th>
+		<% end %>
 	</tr>
 	<% end %>
 </table>

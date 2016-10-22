@@ -1,0 +1,20 @@
+<% @page_title = "Admin Menu | Delete Video" %>
+
+<div class="menu">
+
+	<%= form_for :video, url: { action: 'destroy_video', :id => @video} do |f| %>
+	<table>
+		<tr>
+			<td>Are you sure?</td>
+		</tr>
+		<tr>
+			<td><%= f.submit "Delete" %></td>
+		</tr>
+	</table>
+	<% end %>
+
+	<br><br>
+
+	<%= link_to("Back to Content", :controller => 'public', :action => 'index') %>
+
+</div>
