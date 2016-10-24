@@ -14,6 +14,7 @@ class AccessController < ApplicationController
 
 	def add_video
 		@video = Video.new
+		@video_count = Video.count + 1
 	end
 
 	def create_video
@@ -22,11 +23,13 @@ class AccessController < ApplicationController
 			redirect_to(:controller => 'public', :action => 'index')
 		else
 			render('add_video')
+			@video_count = Video.count + 1
 		end
 	end
 
 	def edit_video
 		@video = Video.find(params[:id])
+		@video_count = Video.count
 	end
 
 	def update_video
@@ -36,6 +39,7 @@ class AccessController < ApplicationController
 			redirect_to(:controller => 'public', :action => 'index')
 		else
 			render('edit_video')
+			@video_count = Video.count
 		end
 	end
 

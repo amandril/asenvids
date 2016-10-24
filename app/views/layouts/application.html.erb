@@ -10,14 +10,17 @@
 
   <body>
 
-  <% if !flash[:notice].blank? %>
-				<div id="notice-box">
-					<div class="notice">
-						<%= flash[:notice] %>
-					</div>
+  <div class="wrap">
+
+	  	<% if !flash[:notice].blank? %>
+			<div id="notice-box">
+				<div class="notice">
+					<%= flash[:notice] %>
 				</div>
-			<% end %>
-    <%= yield %>
-    
+			</div>
+		<% end %>
+	    <%= yield %>
+
+	</div>
   </body>
 </html>

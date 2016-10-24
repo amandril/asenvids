@@ -17,6 +17,11 @@
 			<td><%= f.text_area :description %></td>
 		</tr>
 		<tr>
+			<td><%= label_tag(:position, "Video Position: ") %></td>
+			<td><%= f.select(:position, 1..@video_count) %></td>
+		</tr>
+		</tr>
+		<tr>
 			<td><%= f.submit "Edit" %></td>
 		</tr>
 	</table>

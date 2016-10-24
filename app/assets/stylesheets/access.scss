@@ -2,8 +2,54 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
+$sm-width: 640px;
+$xs-width: 480px;
+
+@mixin brown {
+	color: brown;
+	font-weight: 500;
+	letter-spacing: .1em;
+	padding: 5px;
+}
+
+@mixin small {
+	@media all and(max-width: #{$sm-width}) {
+		@content;
+	}
+}
+@mixin xs {
+	@media all and(max-width: #{$xs-width}) {
+		@content;
+	}
+}
+
+html {
+	width: 100%;
 	font-family: helvetica, arial;
+	font-weight: 100;
+	body {
+		overflow-x: hidden;
+	}
+}
+
+h1.title {
+	font-size:2.8em;
+	font-weight: 100;
+	margin: 0;
+	@include small {
+		font-size: 2.4em;
+	}
+	@include xs {
+		font-size: 1.6em;
+	}
+}
+
+.wrap {
+	position: relative;
+	width: auto;
+	left: 5%;
+	right: 5%;
+	margin: 50px 0 0 0;
 }
 
 #notice-box {
@@ -16,18 +62,60 @@ body {
 	}	
 }
 
+.brown {
+	@include brown;
+	padding-bottom: 15px;
+}
+
 .menu {
-	ul {
-		padding: 0;
-		li {
-			list-style: none;
+	table {
+		tr {
+			td {
+				padding-bottom: 20px;
+			}
 		}
 	}
 }
 
-table {
-	tr {
-		th { border-bottom: 2px solid #000; padding: 5px 0; }
-		td { padding: 5px 10px; }
+.video-item {
+	position: relative;
+	width: 45%;
+	display: inline-block;
+	// border: 1px solid red; // SHOW SIZE OF VIDEO ITEMS
+	.video-frame {
+		position: relative;
+		padding: 5px;
 	}
+	@include small {
+		position: relative;
+		width: 90%;
+		clear: both;
+		margin-bottom: 10px;
+	}
+	table {
+		width: 100%;
+		display: inline-block;
+		vertical-align: top;
+		tr {
+			.bold {
+				font-weight: 500;
+			}
+			td {
+				padding: 3px 10px 0 0;
+			}
+			.label {
+					text-decoration: underline;
+					text-align: right;
+			}
+			.actions a {
+				color: red;
+			}
+		}
+	}
+}
+
+a.button-link {
+	@include brown;
+	border: 2px solid brown;
+	text-decoration: none;
 }

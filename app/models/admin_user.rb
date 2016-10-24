@@ -4,6 +4,8 @@ class AdminUser < ApplicationRecord
 
 	has_secure_password
 
+	acts_as_list
+
 	EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
 
 	validates :username, 	:length => { :maximum => 50 },

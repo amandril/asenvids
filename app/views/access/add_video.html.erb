@@ -3,7 +3,7 @@
 <div class="menu">
 
 	<%= form_for :video, url: { action: 'create_video' } do |f| %>
-	<table>
+	<table class="brown">
 		<tr>
 			<td><%= label_tag(:title, "Title: ") %></td>
 			<td><%= f.text_field :title %></td>
@@ -17,13 +17,18 @@
 			<td><%= f.text_area :description %></td>
 		</tr>
 		<tr>
-			<td><%= f.submit "Create" %></td>
+			<td><%= label_tag(:position, "Video Position: ") %></td>
+			<td><%= f.select(:position, 1..@video_count) %></td>
+		</tr>
+		</tr>
+		<tr>
+			<td><%= f.submit "Edit" %></td>
 		</tr>
 	</table>
 	<% end %>
 
 	<br><br>
 
-	<%= link_to("Back to Content", :controller => 'public', :action => 'index') %>
+	<%= link_to("Back to Content", {:controller => 'public', :action => 'index'}, class: 'brown') %>
 
 </div>

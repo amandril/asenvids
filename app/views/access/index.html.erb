@@ -1,11 +1,18 @@
 <% @page_title = "Admin Menu" %>
 
 <div class="menu">
-	<div class="identity">Logged in as: <%= session[:username] %></div>
-	<ul>
-		<li><%= link_to("Add Video", :controller => 'access', :action => 'add_video') %></li>
-		<li><%= link_to("Logout", :action => 'logout') %></li>
-		<li>&nbsp;</li>
-		<li><%= link_to("Back to Content", :controller => 'public', :action => 'index') %></li>
-	</ul>
+	<table>
+		<tr>
+			<td class="brown">Logged in as: <%= session[:username] %></td>
+		</tr>
+		<tr>
+			<td><%= link_to("Add Video", {:controller => 'access', :action => 'add_video'}, class: 'button-link') %></td><td></td>
+		</tr>
+		<tr>
+			<td><%= link_to("Logout", {:action => 'logout'}, class: 'button-link') %></td>
+		</tr>
+		<tr>
+			<td><%= link_to "Back to Content", {:controller => 'public', :action => 'index'}, class: 'button-link' %></td>
+		</tr>
+	</table>
 </div>
